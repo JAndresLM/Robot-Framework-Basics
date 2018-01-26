@@ -1,12 +1,14 @@
 *** Settings ***
 Library  Selenium2Library
+Library  ../libraries/login_lib.py
 Resource  ../pages/navigation_page.robot
 Resource  ../pages/login_page.robot
 Resource  ../resources/wrong_entries.robot
 
-Suite Setup      Go To Platform
-Test Setup        Go To Login Page
-Suite Teardown    Close All Browsers
+Suite Setup         Go To Platform
+Test Setup          Go To Login Page
+Test Teardown       Do Logout
+Suite Teardown      Close All Browsers
 
 
 *** Variables ***
@@ -25,7 +27,8 @@ Login With Valid Credentials
 
 Login With Invalid Credentials
     [Tags]  negative_scenario
-    Attempt To Login  ${EMAIL}  ${WRONG_PASSWORD}
+    ${email_address}  Get Email By Type  gmail
+    Attempt To Login  ${email_address}  ${WRONG_PASSWORD}
     Login Should Fail By Authentication Error
 
 

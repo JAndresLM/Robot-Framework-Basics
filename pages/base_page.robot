@@ -12,7 +12,7 @@ ${TIME_OUT}  15s
 Go To Platform
     Open Browser  ${APP_URL}   ${BROWSER}
     Maximize Browser Window
-    Set Selenium Speed   0.5
+    Set Selenium Speed   0.9
 
 
 Click On Element
