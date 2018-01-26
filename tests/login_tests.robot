@@ -7,7 +7,6 @@ Resource  ../resources/wrong_entries.robot
 
 Suite Setup         Go To Platform
 Test Setup          Go To Login Page
-Test Teardown       Do Logout
 Suite Teardown      Close All Browsers
 
 
